@@ -16,7 +16,7 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<Login/>} />
-                <Route path="/registro" element={<ProtectedRoute><Registro/></ProtectedRoute>} />
+                <Route path="/registro" element={<ProtectedRoute superUserOnly><Registro/></ProtectedRoute>} />
                 <Route path="/dash" element={<ProtectedRoute><MenuComponent/></ProtectedRoute>}/>
                 <Route path="/loginadm" element={<AdminLogin/>} />
                 <Route path="/unauthorized" element={<Unauthorized/>}/>

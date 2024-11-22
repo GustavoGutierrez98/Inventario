@@ -1,29 +1,27 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { useAuth } from "./AuthContext"; // Asegúrate de tener la ruta correcta al contexto
+import { useAuth } from "./AuthContext";
 
-const ProtectedRoute = ({ children }) => {
-  const { user, loading } = useAuth(); // Obtén el usuario y el estado de carga desde el contexto
+const ProtectedRoute = ({ children, superUserOnly = false }) => {
+  const { user, loading } = useAuth();
 
   if (loading) {
     return (
       <div>
-        <p>Cargando...</p> {/* Puedes poner un spinner o mensaje más sofisticado */}
+        <p>Cargando...</p>
       </div>
     );
   }
 
-  // Si no hay usuario o no es el superusuario, redirige a la página de login
   if (!user) {
-    return <Navigate to="/" />;
+    return <Navigate to="/" />; // Redirige al login si no hay usuario
   }
 
-  // Si es el superusuario o un usuario autenticado permitido, renderiza el contenido protegido
-  if (user.email !== "tucakike@gmail.com") {
-    return <Navigate to="/unauthorized" />; // Redirige a una página de "No autorizado"
+  if (superUserOnly && user.email !== "tucakike@gmail.com") {
+    return <Navigate to="/unauthorized" />; // Página de "No autorizado"
   }
 
-  return children; // Si el usuario está autenticado y es el superusuario, renderiza el contenido de la ruta protegida
+  return children; // Renderiza el contenido protegido
 };
 
 export default ProtectedRoute;
