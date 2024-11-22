@@ -45,7 +45,7 @@ function MenuComponent() {
   const handleLogout = async () => {
     try {
       await auth.signOut();  // Cerrar sesión de Firebase Authentication
-      navigate('/login');  // Redirigir al usuario a la página de login (puedes cambiar la ruta según necesites)
+      navigate('/');  // Redirigir al usuario a la página de login (puedes cambiar la ruta según necesites)
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
     }
@@ -112,10 +112,15 @@ function MenuComponent() {
           onClick={toggleDrawer}  // Cierra el Sidebar cuando se hace clic en un item
           onKeyDown={toggleDrawer}
         >
-          <Button fullWidth sx={{ padding: '20px', color: 'black' }}>Home</Button>
-          <Button fullWidth sx={{ padding: '20px', color: 'black' }}>Products</Button>
-          <Button fullWidth sx={{ padding: '20px', color: 'black' }}>Pricing</Button>
-          <Button fullWidth sx={{ padding: '20px', color: 'black' }}>Blog</Button>
+          <Button fullWidth sx={{ padding: '20px', color: 'black' }}>Registro</Button>
+          <Button fullWidth sx={{ padding: '20px', color: 'black' }}>Busqueda</Button>
+          <Button
+      fullWidth
+      sx={{ padding: '20px', color: 'black' }}
+      onClick={handleLogout} // Llamar a la función handleLogout al hacer clic
+    >
+      Salir
+    </Button>
         </Box>
       </Drawer>
     </>

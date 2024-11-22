@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged, signOut as firebaseSignOut } from "firebase/auth";
-import { auth } from "../components/config/firebaseConfig"; // porque firebaseConfig.js está en la misma carpeta que AuthContext.js
+import { auth } from "../config/firebaseConfig"; // porque firebaseConfig.js está en la misma carpeta que AuthContext.js
 
 // Crear el contexto
 const AuthContext = createContext();
