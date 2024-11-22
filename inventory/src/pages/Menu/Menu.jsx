@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { auth } from '../../config/firebaseConfig';  // Asegúrate de que esta ruta sea correcta
+import { auth, signOut } from '../../config/firebaseConfig';  // Asegúrate de que esta ruta sea correcta
 import { useNavigate } from 'react-router-dom';  // Importa useNavigate si estás usando React Router
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -10,10 +10,9 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
-import AdbIcon from '@mui/icons-material/Adb';
+
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -36,16 +35,11 @@ function MenuComponent() {
     setAnchorElUser(event.currentTarget);
   };
 
-  // Manejo de cierre del menú de usuario
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   // Función de logout
   const handleLogout = async () => {
     try {
-      await auth.signOut();  // Cerrar sesión de Firebase Authentication
-      navigate('/');  // Redirigir al usuario a la página de login (puedes cambiar la ruta según necesites)
+      await signOut(auth);  // Cerrar sesión de Firebase Authentication
+      navigate("/");  // Redirigir al usuario a la página de login (puedes cambiar la ruta según necesites)
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
     }

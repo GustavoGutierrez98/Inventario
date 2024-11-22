@@ -92,7 +92,7 @@ function SignUp() {
           <button type="submit">Crear Cuenta</button>
         </div>
         <div className="register-link">
-          <p>¿Ya tienes una cuenta? <a href="/">Inicia sesión</a></p>
+          <p>¿Ya tienes una cuenta? <a href='/'>Inicia sesión</a></p>
         </div>
       </form>
       <ToastContainer />
