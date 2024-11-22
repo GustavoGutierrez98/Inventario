@@ -37,7 +37,8 @@ function Login() {
       }
     };
     return (
-        <div className='wrapper'>
+        <div id="Login">
+          <div className='wrapper'>
           <form onSubmit={handleLogin}>
             <h1>LOGIN</h1>
             {error && <p className="error">{error}</p>}
@@ -72,9 +73,10 @@ function Login() {
               <button type='submit'>Iniciar</button>
             </div>
             <div className="register-link">
-              <p>No tienes una cuenta? <a href="#">Registrate</a></p>
+              <p>No tienes una cuenta? <a href="/registro">Registrate</a></p>
             </div>
           </form>
+        </div>
         </div>
       );
 }

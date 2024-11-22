@@ -7,7 +7,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyAq-TykOi2_lg_7YsweONePmB7Gi5hB5ag",
   authDomain: "loginmoviles.firebaseapp.com",
   projectId: "loginmoviles",
-  storageBucket: "loginmoviles.firebasestorage.app",
+  storageBucket: "loginmoviles.appspot.com", // Corregido
   messagingSenderId: "745183367991",
   appId: "1:745183367991:web:0f986aaee4308476b780b2"
 };
